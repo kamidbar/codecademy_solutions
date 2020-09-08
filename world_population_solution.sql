@@ -1,3 +1,5 @@
+#World Populations II Challenge Project (SQL)#
+
 SELECT COUNT(*)
 FROM countries
 WHERE continent = 'Africa';
