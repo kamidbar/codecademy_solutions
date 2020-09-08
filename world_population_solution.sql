@@ -28,10 +28,8 @@ JOIN countries
 ON population_years.country_id = countries.id
 WHERE countries.name = 'Poland';
 
-SELECT COUNT(DISTINCT countries.name) AS 'Countries with "the"'
-FROM population_years
-JOIN countries
-ON population_years.country_id = countries.id
+SELECT COUNT(*) AS 'Countries with "the"'
+FROM countries
 WHERE countries.name LIKE '%the';
 
 SELECT continent, SUM(population) AS 'Total Population'
