@@ -1,36 +1,28 @@
 #World Populations II Challenge Project (SQL)#
 
-SELECT COUNT(*)
+SELECT COUNT(*) AS '# of African Countries'
 FROM countries
 WHERE continent = 'Africa';
 
-SELECT *
-FROM population_years
-LIMIT 20;
-
-SELECT *
-FROM countries
-LIMIT 10;
-
-SELECT SUM(population)
+SELECT ROUND(SUM(population),3) AS 'Total Population'
 FROM population_years
 JOIN countries
 ON population_years.country_id = countries.id
 WHERE countries.continent = 'Oceania' AND population_years.year = 2005;
 
-SELECT ROUND(AVG(population),3)
+SELECT ROUND(AVG(population),3) AS 'Average Population'
 FROM population_years
 JOIN countries
 ON population_years.country_id = countries.id
 WHERE countries.continent = 'South America' AND population_years.year = 2003;
 
-SELECT countries.name, MIN(population)
+SELECT countries.name, MIN(population) AS 'Smallest Population'
 FROM population_years
 JOIN countries
 ON population_years.country_id = countries.id
 WHERE population_years.year = 2007;
 
-SELECT ROUND(AVG(population),3)
+SELECT name, ROUND(AVG(population),3) AS 'Average Population'
 FROM population_years
 JOIN countries
 ON population_years.country_id = countries.id
@@ -42,7 +34,7 @@ JOIN countries
 ON population_years.country_id = countries.id
 WHERE countries.name LIKE '%the';
 
-SELECT continent, SUM(population) AS 'Total population'
+SELECT continent, SUM(population) AS 'Total Population'
 FROM population_years
 JOIN countries
 ON population_years.country_id = countries.id
